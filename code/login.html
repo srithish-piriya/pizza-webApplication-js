@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login page of pixxa hut</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0px;
+        }
+        #maindiv{
+            display:flex
+        }
+        #sidecontainer{
+            width: 40%;
+            height: 700px;
+            margin-left: 10%;
+            
+        }
+        #form_div {
+            width: 40%;
+            height: 700px;
+            background-color: antiquewhite;
+           
+            
+        }
+
+        #form {
+            margin-top: 32%;
+            margin-left: 25%;
+            
+        }
+        #uname,#pwd{
+            height:30px;
+        }
+        label{
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="height: 80px;background-color: black;display: flex;justify-content:center;align-items: center;">
+        <h1 style="color: white;"> Login Page of pixxa hut</h1>
+    </div>
+    <div id="maindiv">
+        <div id="sidecontainer">
+            <img src="images/bg.jpg" alt="" width="100%" height="100%">
+        </div>
+        <div id="form_div">
+            <form  id= "form" action="pixxa.html" onsubmit="return validation()">
+                <label for="uname"> User Name:</label>
+                <input id="uname" type="text" placeholder="User Name"><br><br>
+                <label for="pwd"> Password :</label>
+                <input id="pwd" type="password" placeholder="password"><br><br>
+                <input type="submit" value="submit">
+            </form>
+        </div>
+    </div>
+</body>
+<script>
+    function validation() {
+        let user_name = document.getElementById("uname")
+        let password = document.getElementById("pwd")
+        if (user_name.value === "Admin" && password.value === "Admin") {
+            alert("login successfull")
+            return true
+        }
+        else {
+            if (user_name.value !== "Admin" && password.value === "Admin") {
+                user_name.style.border = "2px solid red"
+                alert("invalid  User name!!")
+                return false
+            }
+            else if (user_name.value === "Admin" && password.value !== "Admin") {
+                password.style.border = "2px solid red"
+                alert("invalid Password!!")
+                return false
+            }
+            else {
+                user_name.style.border = "2px solid red"
+                password.style.border = "2px solid red"
+                alert("invalid credientials!!")
+                return false
+            }
+
+        }
+    }
+</script>
+
+</html>
